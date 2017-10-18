@@ -1,9 +1,12 @@
 ## GSS
-### A modify shadowsocks version with myself!
+A modify shadowsocks version with myself!
+------
 ### version:1.1
 ### author:yixuanzi
 ### date:2017-10-18
+### email:yeying0311@126.com
 
+----------
 ### Server
 >ssserver xxx (根据配置建立gss服务）
 
