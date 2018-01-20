@@ -62,7 +62,7 @@ def getaddrfromip(ip):
 
     
 if __name__=="__main__":
-    rss_url="https://www.binbinss.win/link/WvtRmpmi9nmAvzGC?mu=1" #rss address
+    rss_url="https://www.binbinss.bid/link/WvtRmpmi9nmAvzGC?mu=1" #rss address
     ree=re.compile("^(?P<host>\S+?):(?P<port>\d+?):(?P<protocol>\S+?):(?P<method>\S+?):(?P<obfs>\S+?):(?P<passwd>\S+?)/\?obfsparam=(?P<obfsp>\S+?)&protoparam=(?P<protop>\S+?)&remarks=(?P<remarks>\S+?)&group=(?P<group>\S+)$")    
     rs=urllib2.urlopen(rss_url)
     resptext=d64string(rs.read())
