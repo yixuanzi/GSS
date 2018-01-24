@@ -63,16 +63,19 @@ def getaddrfromip(ip):
     
 if __name__=="__main__":
     rss_url="https://www.binbinss.bid/link/WvtRmpmi9nmAvzGC?mu=1" #rss address
-    ree=re.compile("^(?P<host>\S+?):(?P<port>\d+?):(?P<protocol>\S+?):(?P<method>\S+?):(?P<obfs>\S+?):(?P<passwd>\S+?)/\?obfsparam=(?P<obfsp>\S+?)&protoparam=(?P<protop>\S+?)&remarks=(?P<remarks>\S+?)&group=(?P<group>\S+)$")    
-    rs=urllib2.urlopen(rss_url)
-    resptext=d64string(rs.read())
-    rsss=resptext.split('\n')
+    ree=re.compile("^(?P<host>\S+?):(?P<port>\d+?):(?P<protocol>\S+?):(?P<method>\S+?):(?P<obfs>\S+?):(?P<passwd>\S+?)/\?obfsparam=(?P<obfsp>\S+?)&protoparam=(?P<protop>\S+?)&remarks=(?P<remarks>\S+?)&group=(?P<group>\S+)$")        
     try:
-        assert os.path.isdir(sys.argv[1])
+        assert os.path.isfile(sys.argv[1])
+        assert os.path.isdir(sys.argv[2])
+        #rs=urllib2.urlopen(rss_url)
+        resptext=d64string(open(sys.argv[1]).read())        
+        rsss=resptext.split('\n')
         map(lambda x:rss2config(x),rsss)
-        write2file(sys.argv[1])
-    except Exception:
-        print "python rss2ssrconfig.py {dstPath}"
+        write2file(sys.argv[2])
+    except Exception,e:
+        print repr(e)
+        print "you can get the rss file with:",rss_url
+        print "python rss2ssrconfig.py {rssfile} {dstPath}"
     
     
 
